@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 通过不同的fragment来加载不同的偏好文件 -->
+    <!--
+        <header
+	        android:fragment="com.stone.fragment.MyPreferenceFragment1"
+	        android:summary="summ_category_one"
+	        android:title="category_one" />
+	    <header
+	        android:fragment="com.stone.fragment.MyPreferenceFragment2"
+	        android:summary="summ_category_two"
+	        android:title="category_two" >
+	    </header>
+    -->
+
+
+    <!-- 通过同一个fragment来加载不同的偏好文件，使用extra来区分 -->
+    <header
+        android:fragment="com.stone.fragment.MyPreferenceFragment"
+        android:summary="summ_category_one"
+        android:title="category_one" >
+        <extra
+            android:name="preKey"
+            android:value="pre1" />
+    </header>
+    <header
+        android:fragment="com.stone.fragment.MyPreferenceFragment"
+        android:summary="summ_category_two"
+        android:title="category_two" >
+
+        <!-- key/value pairs can be included as arguments for the fragment. -->
+        <extra
+            android:name="preKey"
+            android:value="pre2" />
+    </header>
+
+</preference-headers>

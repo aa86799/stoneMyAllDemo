@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:ordering="together">
+
+    <!-- android:ordering  together表示同时运行动画，  sequentially 表示按顺序执行以下动画 -->
+    <set>
+        <objectAnimator
+            android:propertyName="rotationX"
+            android:repeatCount="50"
+            android:repeatMode="reverse"
+            android:valueFrom="0"
+            android:valueTo="20" />
+        <objectAnimator
+            android:propertyName="rotationY"
+            android:repeatCount="50"
+            android:repeatMode="reverse"
+            android:valueFrom="0"
+            android:valueTo="45"
+            android:valueType="floatType" />
+    </set>
+    <set>
+        <objectAnimator
+            android:propertyName="scaleX"
+            android:repeatCount="50"
+            android:repeatMode="reverse"
+            android:valueFrom="1.0"
+            android:valueTo="2.0" >
+        </objectAnimator>
+        <objectAnimator
+            android:propertyName="scaleY"
+            android:repeatCount="50"
+            android:repeatMode="reverse"
+            android:valueFrom="1.0"
+            android:valueTo="2.0" >
+        </objectAnimator>
+    </set>
+
+</set>

@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_settings"
+        android:title="@string/menu_settings"
+        android:orderInCategory="100" />
+    <group android:id="@+id/group1">
+        <item android:id="@+id/item1" android:title="item1" />
+        <item android:id="@+id/item2" android:title="item2" />
+    </group>
+     <item android:id="@+id/item3" android:title="item3" />
+     <item android:id="@+id/item4" android:title="item4" />
+     <item android:id="@+id/item5" android:title="item5" />
+     
+</menu>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scale xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="2000"
+    android:fromXScale="1"
+    android:fromYScale="1"
+    android:toXScale="3"
+    android:toYScale="2"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:interpolator="@android:anim/overshoot_interpolator"
+    android:fillAfter="true"
+    android:repeatCount="50"
+    android:repeatMode="reverse"  >
+<!-- 
+	scale 缩放比率
+ -->
+ <!-- 
+ 默认情况下：动画随着时间的推移 均匀的被应用，要改变这种效果可以使用插入器
+ interpolator 设置插入器
+ 	accelerate_interpolator  				类似加速度先小后大， 开始慢 后渐快  变速运动 
+ 	accelerate_decelerate_interpolator		类似加速度先大后小， 先加速 后减速	 变速运动
+ 	
+ 	anticipate_interpolator					the change starts backward then flings forward 先减(减到比开始值还小一点)，后加(加到结束值)
+ 	anticipate_overshoot_interpolator		先减(减到比开始值还小一点)，后加(加到比结束值还大一点，再回退到结束值)
+ 	overshoot_interpolator					直接加速到结束值，并比结束值还大一点，再回退到结束值
+ 	
+ 	bounce_interpolator						反弹结束时的变化 到达结束值时一会小一会大 来回两次
+ 	cycle_interpolator						先快速从开始到结束值，再遵循正弦模式继续运动 (左右对切，上下对切)
+ 	linear_interpolator						类似加速度为0，速率不变， 匀速运动 	不定义插入器时使用的默认值
+ 	
+  -->
+</scale>

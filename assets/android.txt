@@ -1,0 +1,20 @@
+1.避免对activity，即Context对象的超过生命周期的引用，尽量使用ApplicationContext
+2.有些不得不缓存在内存中的图片大字符串等，最好使用软引用或者弱引用
+3.要像C程序员一样去留意new出来的对象的生命周期，尽量不要由于各种复杂的引用导致GC不能及时的甚至永远不能回收某块内存。对象用完后请显式设为null更容易引起GC的注意而且还可以养成注意对象生命周期的习惯，不是new出来就不管了而是要注意销毁。还有就是有必要的时候调用一下System.gc()对GC做一下提醒。
+4.线程的run方法没结束，则不会释放activity的引用， 这时：将线程的内部类，改为静态内部类；
+	在线程内部采用弱引用保存Context引用。
+5.Bitmap 对象：
+	if(bitmapObject.isRecycled()==false) //如果没有回收 
+		bitmapObject.recycle(); //通知 可以回收了
+		system.gc();
+  有些时候，我们使用Bitmap后没有保留对它的引用：在使用后， list.add(new SoftReference(bitmap));
+6.自定义我们的应用需要多大的内存，强行设置最小内存大小，代码如下：
+	private final static int CWJ_HEAP_SIZE = 6* 1024* 1024 ; 
+	//设置最小heap内存为6MB大小 
+	VMRuntime.getRuntime().setMinimumHeapSize(CWJ_HEAP_SIZE); 
+7.在程序onCreate时就可以调用 
+    VMRuntime.getRuntime().setTargetHeapUtilization(0.75f); 可以增强程序堆内存的处理效率
+	
+8.垃圾回收器并不保证能准确回收内存，这样在使用自己需要的内容时，主要生命周期和及时释放掉不需要的对象。尽量	在Activity的生命周期结束时，在onDestroy中把我们做引用的其他对象做释放，比如：cursor.close()。
+9. 在你不控制对象的生命周期的情况下避免在你的Activity中使用static变量。尽量使用WeakReference去代替一个	static。
+

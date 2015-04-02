@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.stone"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <!--
+	xmlns:android 默认的命名空间 表示所有以android开头的属性 都在 android包中找到
+	xmlns:custom  在packagecom.stone包下定义的属性 即 <declare-styleable />中的所有属性
+    -->
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="150dp" >
+		
+        <!-- 使用自定义view -->
+        <com.stone.view.CustomView1
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            custom:score="60%"
+            custom:rotation="-45"
+            custom:color="#3f00ff00" />
+        <!--
+        	wrap_content， 那么宽度没有具体指定，对应测量模式规则 	MeasureSpec.AT_MOST
+        	fill_parent			指定了高度	跟父view一样			MeasureSpec.EXACTLY
+        -->
+    </LinearLayout>
+	
+    <!-- 使用自定义view -->
+    <com.stone.view.CustomView2
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+	
+    <!-- 当自定义view是一个内部类时，需要像以下这样用<view 设置class属性 /> -->
+    <view
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        class="com.stone.view.CustomView1$Custom1" />
+    
+
+</LinearLayout>

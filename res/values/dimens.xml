@@ -1,0 +1,18 @@
+<!-- 
+	dp Density-independent Pixels
+	sp Scale-independent Pixels
+	pt Points - 1/72 of an inch based on the physical size of the screen.
+	px	实际像素
+	mm	实际尺寸 毫米值
+	in  英寸
+ -->
+<resources>
+
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="image_thumbnail_size">100dp</dimen>
+    <dimen name="image_thumbnail_spacing">1dp</dimen>
+    <dimen name="image_detail_pager_margin">80dp</dimen>
+
+</resources>

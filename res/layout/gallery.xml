@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<Gallery 
+	    android:id="@+id/gy_gallery"
+	    android:layout_width="fill_parent"
+	    android:spacing="20dp"
+	    android:animationDuration="2000"
+	    android:layout_height="wrap_content" />
+	<ImageSwitcher 
+	    android:id="@+id/is_switcher" 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"/>
+</LinearLayout>

@@ -1,0 +1,63 @@
+
+/*
+ * 使用SharedPreferences来存储，它支持的数据类型有：boolean float int long Set<String> 
+ * CheckBoxPreference
+		显示了该是启用或禁用设置一个复选框的项目。保存的值是一个布尔值（真如果它选中）。
+	ListPreference
+		打开一个对话框，单选按钮列表。保存的值可以是支持的值类型（如上所列）中的任何一个。
+	EditTextPreference
+		将打开一个对话框的EditText小部件。保存的值是一个字符串。
+ */
+
+/*
+ *		 android:key ：          每个Preference控件独一无二的”ID”,唯一表示此Preference。          
+         android:defaultValue ： 默认值。 例如，CheckPreference的默认值可为”true”，默认为选中状态；
+                                             EditTextPreference的默认值可为”110” 。
+         android:enabled ：      表示该Preference是否可用状态。     
+         android:title ：        每个Preference在PreferenceScreen布局上显示的标题——大标题
+         android:summary ：      每个Preference在PreferenceScreen布局上显示的标题——小标题(可以没有)
+         android:persistent：    表示Preference元素所对应的值是否写入sharedPreferen文件中，如果是true，则表示写
+                                       入；否则，则表示不写入该Preference元素的值。
+         android:dependency：    表示一个Preference(用A表示)的可用状态依赖另外一个Preference(用B表示)。B可用，
+                                              则A可用；B不可用，则A不可用。
+         android:disableDependentsState：  与android:dependency相反。B可用，则A不可用；B不可用，则A可用。
+         
+ 	<PreferenceScreen> 嵌套后，显示子节点的标题，点击后新启动一个screen显示子元素
+ 	
+ 常用的方法则包括：
+                getKey()            setKey()
+             getSummary()        setSummary()
+             getText()           setText()
+             
+             
+   Preference的跳转：
+     方法一：在配置每个Preference元素节点时，我们可以显示为点击它时所跳转的Intent。点击该Preference，跳转至目标Intent。除非在onPreferenceTreeClick()方法中进行抉择。
+     方法二：可以在onPreferenceTreeClick()创建新的intent显示的进行跳转。
+     执行的顺序:	onPreferenceTreeClick(), 如果Preference.getkey==xml中的key时，return true, 则不再执行； 如果return false， 则执行xml中的intent
+     
+     
+     ListPreference
+          XML Attributes：
+              android:dialogTitle：弹出控件对话框时显示的标题
+              android:entries：类型为array，控件欲显示的文本
+              android:entryValues：类型为array，与文本相对应的key-value键值对，value保存至sharedPreference文件
+              说明：entries和entryValue属性使用的数组为定义在资源文件arrays.xml的数组名：
+          方法：
+              CharSequence[]    getEntries()： 返回的是控件显示文本的一个”key”数组，对应于属性android:entries
+              CharSequence[]    getEntryValues()：返回的一个”value”数组，对应于属性android: entryValues
+              CharSequence      getEntry(): 返回当前选择文本
+                String          getValue() :返回当前选中文本选中的value 。
+                
+    RingtonePreference
+             XML Attributes：
+             android:ringtoneType：响铃的铃声类型，主要有：ringtone(音乐)、notification(通知)、alarm(闹铃)
+                                      、all(所有可用声 音类型)。
+               android:showDefault ：默认铃声，可以使用系统(布尔值---true,false)的或者自定义的铃声
+               android:showSilent  ：指定铃声是否为静音。指定铃声包括系统默认铃声或者自定义的铃声
+	监听事件：Preference.OnPreferenceClickListener.onPreferenceClick()
+			Preference.OnPreferenceChangeListener.onPreferenceChange()
+			PreferenceActivity.onPreferenceTreeClick()
+	事件执行顺序：
+		当点击或值改变时，默认onPreferenceTreeClick，  其他两种需要设置preference相应的监听器
+		当设置了listener后，onPreferenceChange总会执行； onPreferenceClick返回true，则不执行onPreferenceTreeClick
+*/

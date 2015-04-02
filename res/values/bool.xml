@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 对应的代码 getResouce().getBoolean(resid) -->
+    <bool name="is_show">true</bool>
+    
+    <item type="bool" name="is_access">false</item>
+</resources>

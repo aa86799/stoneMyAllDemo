@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+#RGB
+#ARGB
+#RRGGBB
+#AARRGGBB
+-->
+<resources>
+
+    <!-- 选中色 -->
+    <color name="selected_back">#FF660E0C</color>
+    <!-- 左菜单背景 -->
+    <color name="normal_back">#FF2C2C2C</color>
+    <!-- 焦点色 -->
+    <color name="focus_back">#F0F39801</color>
+    <!-- 字体色 -->
+    <color name="text_color">#FFFFFF</color>
+    
+    <item type="color" name="admin">#aabbcc</item>
+
+</resources>

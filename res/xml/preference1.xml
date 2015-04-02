@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+   
+	<Preference 
+	    android:key="p_key1"
+	    android:title="preference1"/>
+    <ListPreference
+        android:dialogTitle="选择部门"
+        android:entries="@array/department"
+        android:entryValues="@array/department_value"
+        android:key="depart_value"
+        android:title="部门设置" >
+    </ListPreference>
+
+    <PreferenceScreen
+        android:key="ps_ring"
+        android:title="铃声设置"
+        android:summary="@string/_preferencescreen_screen_">
+        <PreferenceCategory
+            android:key="ring_key"
+            android:title="铃声" >
+            <RingtonePreference
+                android:key="ring_ringtone"
+                android:ringtoneType="ringtone"
+                android:showDefault="true"
+                android:showSilent="true"
+                android:summary="音乐铃声"
+                android:persistent="false"
+                android:title="ringtone" />
+            <RingtonePreference
+                android:key="ring_notification"
+                android:ringtoneType="notification"
+                android:showDefault="true"
+                android:showSilent="true"
+                android:summary="通知的铃声"
+                android:title="notification" />
+            <RingtonePreference
+                android:key="ring_alarm"
+                android:ringtoneType="alarm"
+                android:showDefault="true"
+                android:showSilent="true"
+                android:summary="闹钟的铃声"
+                android:title="alarm" />
+        </PreferenceCategory>
+    </PreferenceScreen>
+
+</PreferenceScreen>

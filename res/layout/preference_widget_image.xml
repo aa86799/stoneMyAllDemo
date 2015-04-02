@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/pref_current_img"
+        android:layout_width="54dip"
+        android:layout_height="54dip"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="4dip"
+        android:clickable="false"
+        android:focusable="false"
+        android:padding="2dip"
+        android:src="@drawable/a4" />
+
+</LinearLayout>

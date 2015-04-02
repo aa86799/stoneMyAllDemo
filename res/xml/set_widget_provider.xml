@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="250dp"
+    android:minHeight="180dp"
+    android:updatePeriodMillis="5000"
+    android:previewImage="@drawable/ic_launcher"
+    android:initialLayout="@layout/collections_view_widget"
+    android:resizeMode="horizontal|vertical"
+    android:autoAdvanceViewId="@id/viewflipper"  >
+	<!-- 
+		计算size的公式: (70*n) -30  n为部件所需的大小(占几格)   当前的就是  4x4
+		minResizeWidth
+    	minResizeHeight   能被调整的最小宽高，若大于minWidth minHeight 则忽略
+    	label	选择部件时看到标签
+    	icon	选择部件时看到图标
+    	updatePeriodMillis	更新时间间隔
+    	previewImage	选择部件时 展示的图像  3.0以上使用
+    	initialLayout	布局文件
+    	resizeMode		调整size模式
+    	configure		如果需要在启动前先启动一个Activity进行设置，在这里给出Activity的完整类名
+    	autoAdvanceViewId=@id/xx	与集合部件一起使用，指定该集合item自动推进 暂只发现对stackview有效，会自动一段时间推进到下一个
+    	
+    	集合部件：3.0后才有。set view：ListView、GridView、StackView、AdapterViewFlipper
+    	ViewFlipper 为非集合部件
+	 -->
+</appwidget-provider>

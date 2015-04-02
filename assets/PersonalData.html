@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <!-- <script type="text/javascript" language="javascript" src="../test.js"/>-->
+      <!-- window.PersonalData java对象:WebviewTest 的实例 -->
+	<script type="text/javascript">    
+		window.onload=function() {//window.onload会在body加载后执行,这时document对象和才会有
+			alert("aa");
+	    	var personaldata = window.PersonalData.getPersonalData();
+	    	if(personaldata)
+		    {
+		    /*alert(personaldata.getID());
+		    alert(personaldata.getName());
+		    alert(personaldata.getAge());
+		    alert(personaldata.getBlog());*/
+		    
+		    var divPD= document.getElementById("Personaldata");
+			pnode = document.createElement("p");
+		        tnode = document.createTextNode("ID:" + personaldata.getID());
+		        pnode.appendChild(tnode);
+		        divPD.appendChild(pnode);
+			pnode = document.createElement("p");
+		        tnode = document.createTextNode("Name:" + personaldata.getName());
+		        pnode.appendChild(tnode);
+		        divPD.appendChild(pnode);
+			pnode = document.createElement("p");
+		        tnode = document.createTextNode("Age:" + personaldata.getAge());
+		        pnode.appendChild(tnode);
+		        divPD.appendChild(pnode);
+			pnode = document.createElement("p");
+		        tnode = document.createTextNode("Blog:" + personaldata.getBlog());
+		        pnode.appendChild(tnode);
+		        divPD.appendChild(pnode);   
+		    }
+		}
+	</script> 
+	<!--<script type="text/javascript"> 
+alert("in head"); 
+</script> -->
+	</head>
+	
+<body>
+<!--<script type="text/javascript"> 
+	alert("in body"); 
+</script> -->
+	
+
+    <div id = "Personaldata">
+        <p> my Data </p>
+    </div>
+    <input type="button" value="自定义对象的js调用，跳转到网易" onclick="javascript:window.obj.click()" />
+    <input type="button" value="自定义对象的1js调用" onclick="javascript:window.PersonalData.cc()" />
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!--
+  Copyright 2013 The Android Open Source Project
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+        http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<!-- 
+android:showAsAction
+	 ifRoom	会显示在Item中，但是如果已经有4个或者4个以上的Item时会隐藏在溢出列表中。
+	 		当然个数并不仅仅局限于4个，依据屏幕的宽窄而定
+	 never	永远不会显示。只会在溢出列表中显示，而且只显示标题，所以在定义item的时候，最好把标题都带上。
+	 always	无论是否溢出，总会显示。
+	 withText	withText值示意Action bar要显示文本标题。Action bar会尽可能的显示这个
+				标题，但是，如果图标有效并且受到Action bar空间的限制，文本标题有可能显示不全。
+	 collapseActionView  声明了这个操作视窗应该被折叠到一个按钮中，当用户选择这个按钮时，这个操作视窗展开。
+	 					否则，这个操作视窗在默认的情况下是可见的，并且即便在用于不适用的时候，也要占据操作栏的有效空间。
+						一般要配合ifRoom一起使用才会有效果。
+
+指定一个构建视窗所使用的布局资源					
+android:actionProviderClass="com.stone.provider.SearchActionProvider"  
+	actionViewClass  指定一个自定义view
+	actionLayout 直接指定一个layout
+ -->
+    <item
+        android:id="@+id/action_search"
+        android:actionViewClass="android.widget.SearchView" 
+        android:icon="@android:drawable/ic_menu_search"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="search"/>
+	<item 
+	    android:actionLayout="@layout/search_action_view"
+	    android:title="示范actionLayout"/>
+	    
+</menu>

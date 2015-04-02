@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:key="set_local"
+        android:title="preference2" /> <!-- PreferenceCategory: 偏好分类 -->
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="apply_wireless"
+        android:summary="使用无线网络在应用程序（例如Google地图）中查看位置"
+        android:title="使用无线网络" >
+    </CheckBoxPreference>
+
+
+</PreferenceScreen>

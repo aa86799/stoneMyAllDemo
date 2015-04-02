@@ -1,0 +1,58 @@
+<resources>
+
+    <string name="app_name">StoneDemo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+	<string name="progress_title">提示</string>
+	<string name="progress_message">正在更新数据，请稍候...</string>
+	<string name="net_erroe">网络错误，请检查您的网络或稍后重试。</string>
+	<string name="net_not_connect">当前网络不可用，请先连接Internet！</string>
+	
+	<string name="addBook">bookAction/add</string>
+	
+	<string name="_preferencescreen_screen_">&lt;PreferenceScreen&gt; 嵌套后，显示子节点的标题，点击后新启动一个screen显示子元素</string>
+<!-- 
+	& 对应 &amp;
+	< 对应 &lt;
+	> 对应 &gt;
+	' 对应 &apos;
+	" 对应 &quot; 
+-->
+	<!-- getResources().getConfiguration().locale 得出当前本地化对象 -->
+	 <!-- 1$第1 个占位符 2$第二个 getString(R.string.format_string, "abc", 98.33);-->
+	<string name="format_string">a string %1$s, a decimal %2$f</string>
+	
+	<plurals name="planes">
+	    <item quantity="zero">none</item>
+	    <item quantity="one">plane %d</item>
+	    <item quantity="other">%d planes</item>
+	    <!-- 
+	    	%d数字
+	    	quantity zero	 例如阿拉伯语中对0的特殊处理
+	    			one		 例如俄语和英语中对1的特殊处理
+	    			two		 例如威尔士语中对2的特殊处理
+	    			few		 例如波兰语中对小数目的特殊处理
+	    			many	 例如马耳他语对大数目的特殊处理
+	    			other	 当语言要求对一个数字没有特殊待遇时使用
+	    	对应代码 getResources().getQuantityString(R.plurals.planes, int num, int num);
+	     -->
+	</plurals>
+	
+	<!-- drawer layout -->
+	<string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+
+</resources>

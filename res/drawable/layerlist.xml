@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:bottom="1dp">  
+        <shape>  
+            <solid android:color="#aaFF0000"/>  
+        </shape>  
+    </item>  
+    
+    <!--     每个item都一个图形层，整个list就是合并了这些图形层的 总层 -->
+ <!--  angle 角度:只能是45的倍数，只有当type=linear时才有用
+                dither 是否支持渐变色彩 --> 
+    <item>
+        <shape>
+ 			 <gradient 
+                android:startColor="#cca6a6a6"
+                android:centerColor="#ccdbdbdb"
+                android:endColor="#cce7e7e7"
+                android:height="1px"
+				android:type="linear"
+                android:angle="90"			
+                android:dither="true"      
+                />
+              
+        </shape>
+    </item>
+</layer-list>
+    

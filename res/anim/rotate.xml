@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="1000"
+    android:fromDegrees="0" 
+    android:toDegrees="-90"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:repeatCount="50" 
+    android:interpolator="@android:anim/cycle_interpolator"
+    android:repeatMode="reverse"
+    android:fillAfter="true">
+<!-- 
+fromDegrees="0" 	开始角度
+toDegrees="-90"		结束角度
+pivotX="50%"		中心点x
+pivotY="50%"		中心点y
+ -->
+</rotate>

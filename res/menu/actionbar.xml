@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/search"
+        android:title="Search"  
+        android:orderInCategory="2"
+        android:icon="@android:drawable/ic_menu_search"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:actionViewClass="android.widget.SearchView"/>
+	<!-- 
+		android:showAsAction="
+			ifRoom 表示屏幕有足够的空间才会显示操作项，否则会折叠起来
+			withText 表示 菜单项的图标和标题文字都会在操作栏中显示
+			always 表示 操作栏中会一直显示该操作项
+			never 表示  			  永不显示 ,会显示 在更多里
+			
+			collapseActionView 表示 将操作视图折叠到一个操作项上，若不设，视图即使不用，也会占用操作栏上的空间
+			 android:orderInCategory  标识item显示 的顺序
+			 android:actionViewClass  动作触发的view
+			"
+	 -->
+	 
+	 <item android:id="@+id/share"
+        android:title="Share"	
+        android:orderInCategory="1"
+        android:icon="@android:drawable/ic_menu_share"
+        android:showAsAction="ifRoom"
+        android:actionProviderClass="android.widget.ShareActionProvider"/>
+	 <!-- 
+	  android:actionProviderClass 使用一个ActionProvider  可以自定义实现一个provider，自定义布局和事件处理
+	 ShareActionProvider 是一个比标准分享意图更易用的分享类，它创建了一个短的下拉列表，展示最常用的系统中的分享
+	  -->
+	  
+	   <item android:id="@+id/test"
+        android:title="test"	
+        android:orderInCategory="3"
+        android:icon="@drawable/a11"
+        android:showAsAction="ifRoom" />
+	   
+	   <item android:id="@+id/test2"
+        android:title="test2"	
+        android:orderInCategory="4"
+        android:icon="@drawable/a4"
+        android:showAsAction="ifRoom" />
+</menu>

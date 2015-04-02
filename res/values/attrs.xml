@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="test1" format="integer" />
+
+    <declare-styleable name="customview1">
+        <attr name="android:color" />
+        <attr name="color" format="color" />
+        <attr name="rotation" format="string" /> <!-- 名称 格式 -->
+        <attr name="score" format="fraction" /> <!-- 名称 格式 -->
+
+        <attr name="test1" />
+    </declare-styleable>
+
+    <attr name="test" format="integer" />
+
+    <declare-styleable name="customview2">
+
+        <!-- 复用声明在外部的属性定义test2 -->
+        <attr name="test" />
+        <!-- 参考引用某个资源 如@drawable/img -->
+        <attr name="atr1" format="reference" />
+        <!-- 属性为string类型 -->
+        <attr name="atr2" format="string" />
+        <!-- string类型或引用 -->
+        <attr name="atr3" format="string|reference" />
+        <!-- 布尔型 true false -->
+        <attr name="atr4" format="boolean" />
+        <!-- 整数 -->
+        <attr name="atr5" format="integer" />
+        <!-- 浮点 -->
+        <attr name="atr6" format="float" />
+        <!-- 颜色值 #rgb  #rrggbb #argb #aarrggbb -->
+        <attr name="atr7" format="color" />
+        <!-- 尺寸值 -->
+        <attr name="atr8" format="dimension" />
+        <!-- 百分比 -->
+        <attr name="atr9" format="fraction" />
+        <!-- enum -->
+        <attr name="atr10">
+            <enum name="spring" value="1" />
+            <enum name="summer" value="2" />
+        </attr>
+        <!-- 位或运算 表示 spring|summber -->
+        <attr name="art11">
+            <flag name="spring" value="4" />
+            <flag name="summer" value="8" />
+        </attr>
+    </declare-styleable>
+    
+    
+    <declare-styleable name="rotate_circle">
+         <!-- 切割成几份 -->
+         <attr name="sect" format="integer"/>
+	</declare-styleable>
+
+</resources>

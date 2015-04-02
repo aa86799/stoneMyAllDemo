@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="1000"
+    android:fromXDelta="10"
+    android:fromYDelta="0"
+    android:toXDelta="50%" 
+    android:toYDelta="50%p"
+    android:repeatCount="50"
+    android:repeatMode="reverse"
+    android:fillAfter="true">
+<!-- 
+
+repeatCount		动画再次重复的次数
+repeatMode   	这一次反转上一次的效果 
+fillAfter		动画结束后，view停留在动画结束时的位置  view的实际位置并没有改变
+50%p 相对于父布局
+50%  相对于自身
+ -->
+</translate>

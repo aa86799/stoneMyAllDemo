@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transition xmlns:android="http://schemas.android.com/apk/res/android" >
+		<item android:drawable="@drawable/a3"/>
+		<item android:drawable="@drawable/a8"/>
+		<!-- 只能显示两张图片的 转换效果 -->
+</transition>
+

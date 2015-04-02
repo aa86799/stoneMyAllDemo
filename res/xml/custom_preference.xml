@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <com.stone.fragment.NumberPickerPreference
+        android:defaultValue="1000000"
+        android:key="time_test"
+        android:summary="打开修改时间"
+        android:title="时间设置" />
+
+</PreferenceScreen>
