@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_websearch"
+        android:icon="@drawable/action_search"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/action_websearch" />
+    <item
+        android:id="@+id/action_left"
+        android:showAsAction="ifRoom"
+        android:title="left" />
+    <item
+        android:id="@+id/action_right"
+        android:showAsAction="ifRoom"
+        android:title="right" />
+</menu>

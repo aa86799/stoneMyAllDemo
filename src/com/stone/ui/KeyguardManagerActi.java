@@ -22,7 +22,7 @@ public class KeyguardManagerActi extends Activity {
 //		mLock.disableKeyguard(); // 解除锁屏
 //		mLock.reenableKeyguard();
 		
-//		test();
+		test();
 	}
 
 	void test() {

@@ -38,7 +38,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
 		mMultipleClickProcess = new MultipleClickProcess();
 		
-		radio();
+		radio();//录音
 		
 		/*
 		 * onCreate onStart onResume

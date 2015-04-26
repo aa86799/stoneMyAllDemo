@@ -13,7 +13,7 @@
         android:id="@+id/left_drawer"
         android:layout_width="240dp"
         android:layout_height="match_parent"
-        android:layout_gravity="right"
+        android:layout_gravity="left"
         android:choiceMode="singleChoice"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
@@ -23,7 +23,6 @@
     			none              值为0，表示无选择模式； 
 				singleChoice      值为1，表示最多可以有一项被选中；
 				multipleChoice    值为2，表示可以多项被选中。
-				
 		android:layout_gravity		left  right
 									start end	表示在抽屉里的效果是从左到右还是从右到左出现
      -->

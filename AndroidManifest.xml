@@ -42,19 +42,11 @@
         <activity android:name="com.stone.ui.TestSqliteActivity" />
         <activity android:name="com.stone.ui.TestWebView" />
         <activity android:name="com.stone.ui.WebViewDemo" />
-        <activity android:name="com.stone.ui.sensor.OrientationSensorActivity" />
-        <activity android:name="com.stone.ui.opengles.BaseActivity" />
-        <activity android:name="com.stone.ui.game.ShortTimeSoundActivity" >
-            <intent-filter>
+        <activity android:name="com.stone.sensor.OrientationSensorActivity" />
+        <activity android:name="com.stone.opengles.BaseActivity" />
+        <activity android:name="com.stone.game.ShortTimeSoundActivity" >
 
-                <!--
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-                -->
-            </intent-filter>
         </activity>
-        <activity android:name="com.stone.ui.TTest" />
         <activity android:name="com.stone.ui.PopupWindowActivity" />
         <activity android:name="com.stone.ui.SurfaceViewPlayVideoActivity" />
         <activity android:name="com.stone.ui.GestureViewFlipperActivity" />

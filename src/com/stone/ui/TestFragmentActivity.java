@@ -195,7 +195,7 @@ public class TestFragmentActivity extends FragmentActivity implements OnClickLis
 	
 	private Fragment mCurrent;
     public void switchContent(Fragment from, Fragment to) {
-        if (mCurrent != to) {
+        if (from != to) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             if (!to.isAdded()) {    // 先判断是否被add过
                 transaction.hide(from).add(R.id.ll_content, to).commit(); // 隐藏当前的fragment，add下一个到Activity中

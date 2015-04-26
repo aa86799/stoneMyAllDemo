@@ -1,16 +1,26 @@
+
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.+'
+        classpath 'com.android.tools.build:gradle:1.1.0'
     }
 }
-apply plugin: 'android'
 
-dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
+allprojects {
+    repositories {
+        jcenter()
+    }
 }
+//以上是project的 gradle
+
+/*
+以下是module的配置。
+ */
+
+//apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 20
@@ -40,3 +50,11 @@ android {
         release.setRoot('build-types/release')
     }
 }
+
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+    compile 'com.android.support:support-v4:22.0.0'
+//    compile 'com.android.support:appcompat-v7:22.1.0'
+    compile 'com.google.code.gson:gson:2.3.1'
+}
+

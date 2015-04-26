@@ -9,12 +9,12 @@ import android.app.SearchManager;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,7 +23,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -43,6 +45,8 @@ public class DrawerLayoutActivity extends Activity {
 	    private CharSequence mDrawerTitle;
 	    private CharSequence mTitle;
 	    private String[] mPlanetTitles;
+
+	int status = 0;
 
 	    @Override
 	    protected void onCreate(Bundle savedInstanceState) {
@@ -88,17 +92,20 @@ public class DrawerLayoutActivity extends Activity {
 	            public boolean onOptionsItemSelected(MenuItem item) {
 	            	if (item != null && item.getItemId() == android.R.id.home) {//actionbar上的home icon
 	            		//END即gravity.right 从右向左显示   START即left  从左向右弹出显示
-	                    if (mDrawerLayout.isDrawerVisible(GravityCompat.END)) {
-	                        mDrawerLayout.closeDrawer(GravityCompat.END);//关闭抽屉
-	                    } else {
-	                        mDrawerLayout.openDrawer(GravityCompat.END);//打开抽屉
-	                    }
-//	                    
-//	                    if (mDrawerLayout.isDrawerVisible(GravityCompat.START)) {
-//	                        mDrawerLayout.closeDrawer(GravityCompat.START);//关闭抽屉
-//	                    } else {
-//	                        mDrawerLayout.openDrawer(GravityCompat.START);//打开抽屉
-//	                    }
+						if (status == 0) {
+							if (mDrawerLayout.isDrawerVisible(GravityCompat.START)) {
+								mDrawerLayout.closeDrawer(GravityCompat.START);//关闭抽屉
+							} else {
+								mDrawerLayout.openDrawer(GravityCompat.START);//打开抽屉
+							}
+						} else {
+							if (mDrawerLayout.isDrawerVisible(GravityCompat.END)) {
+								mDrawerLayout.closeDrawer(GravityCompat.END);//关闭right抽屉
+							} else {
+								mDrawerLayout.openDrawer(GravityCompat.END);//打开抽屉
+							}
+						}
+
 	                    return true;
 	                }
 	                return false;
@@ -114,7 +121,7 @@ public class DrawerLayoutActivity extends Activity {
 	    @Override
 	    public boolean onCreateOptionsMenu(Menu menu) {//加载menu  sdk3.0以后menu包含在actionbar中
 	        MenuInflater inflater = getMenuInflater();
-	        inflater.inflate(R.menu.web_search, menu);
+	        inflater.inflate(R.menu.drawerlayout, menu);
 	        return super.onCreateOptionsMenu(menu);
 	    }
 
@@ -124,6 +131,8 @@ public class DrawerLayoutActivity extends Activity {
 	        // If the nav drawer is open, hide action items related to the content view
 	        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
 	        menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);//search的显示与drawer的显示相反
+	        menu.findItem(R.id.action_left).setVisible(!drawerOpen);
+	        menu.findItem(R.id.action_right).setVisible(!drawerOpen);
 	        return super.onPrepareOptionsMenu(menu);
 	    }
 
@@ -136,17 +145,44 @@ public class DrawerLayoutActivity extends Activity {
 	        }
 	        // Handle action buttons
 	        switch(item.getItemId()) {
-	        case R.id.action_websearch:
-	            // create intent to perform web search for this planet
-	            Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-	            intent.putExtra(SearchManager.QUERY, getActionBar().getTitle());
-	            // catch event that there's no activity to handle intent
-	            if (intent.resolveActivity(getPackageManager()) != null) {
-	                startActivity(intent);
-	            } else {
-	                Toast.makeText(this, R.string.app_not_available, Toast.LENGTH_LONG).show();
-	            }
-	            return true;
+	       		 case R.id.action_websearch:
+					// create intent to perform web search for this planet
+					Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+					intent.putExtra(SearchManager.QUERY, getActionBar().getTitle());
+					// catch event that there's no activity to handle intent
+					if (intent.resolveActivity(getPackageManager()) != null) {
+						startActivity(intent);
+					} else {
+						Toast.makeText(this, R.string.app_not_available, Toast.LENGTH_LONG).show();
+					}
+					return true;
+				case R.id.action_left:
+					status = 0;
+					DrawerLayout.LayoutParams params = (DrawerLayout.LayoutParams) mDrawerList.getLayoutParams();
+					params.gravity = Gravity.LEFT;
+					mDrawerList.setLayoutParams(params);
+					mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);//设置shadow
+
+					if (mDrawerLayout.isDrawerVisible(GravityCompat.START)) {
+						mDrawerLayout.closeDrawer(GravityCompat.START);//关闭right抽屉
+					} else {
+						mDrawerLayout.openDrawer(GravityCompat.START);//打开抽屉
+					}
+					return true;
+
+				case R.id.action_right:
+					status = 1;
+					DrawerLayout.LayoutParams params2 = (DrawerLayout.LayoutParams) mDrawerList.getLayoutParams();
+					params2.gravity = Gravity.RIGHT;
+					mDrawerList.setLayoutParams(params2);
+					mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.END);//设置shadow
+
+					if (mDrawerLayout.isDrawerVisible(GravityCompat.END)) {
+						mDrawerLayout.closeDrawer(GravityCompat.END);//关闭right抽屉
+					} else {
+						mDrawerLayout.openDrawer(GravityCompat.END);//打开抽屉
+					}
+					return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	        }
