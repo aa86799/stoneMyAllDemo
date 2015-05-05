@@ -10,14 +10,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.storage.StorageManager;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 
 import com.stone.R;
-import com.stone.reqvo.RequestVo;
+import com.stone.request.RequestVo;
 import com.stone.util.Constants;
 import com.stone.util.DialogUtil;
 import com.stone.util.NetDataUtil;

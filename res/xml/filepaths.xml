@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!--未完成-->
+
+    <!--定义文件共享目录 path为真实路径  name用于content uri
+     如：content://com.example.myapp.fileprovider/myimages/default_image.jpg
+     -->
+    <files-path path="images/" name="myimages" />
+
+   <!-- <paths>标签可以有多个子标签，每一个子标签用来指定不同的共享目录。
+        除了<files-path>标签，你还可以使用<external-path>来共享位于外部存储的目录；
+        另外，<cache-path>标签用来共享在你的内部缓存目录下的子目录。
+        Note: XML文件是你定义共享目录的唯一方式，你不可以用代码的形式添加目录。-->
+</paths>

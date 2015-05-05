@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.stone.jsonparser.BookParser;
 import com.stone.receiver.Book;
-import com.stone.reqvo.RequestVo;
+import com.stone.request.RequestVo;
 
 /**
  *  base acti test

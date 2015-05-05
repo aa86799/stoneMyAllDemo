@@ -1,133 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.stone"
     android:versionCode="1"
-    android:versionName="1.0" xmlns:tools="http://schemas.android.com/tools" >
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
 
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true"
-        android:smallScreens="true"/>
+        android:smallScreens="true" />
 
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="19"/>
-    <instrumentation android:name="android.test.InstrumentationTestRunner" android:targetPackage="com.stone"/>
-
-    <application
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" 
-        android:hardwareAccelerated="true"> <!--hardwareAccelerated 硬件加速，默认为true，即打开状态 api14以上才默认打开  -->
-        <!--  -->
-        <uses-library android:name="android.test.runner"/>
-        <activity
-            android:name="com.stone.ui.MainActivity"
-            android:label="@string/app_name"
-            android:configChanges="orientation|keyboard" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.stone.ui.GalleryTestActivity"
-            android:label="@string/title_activity_main" >
-        </activity>
-        <activity
-            android:name="com.stone.ui.GameViewActivity"
-            android:label="@string/title_activity_main" >
-        </activity>
-        <activity android:name="com.stone.ui.TestSqliteActivity" />
-        <activity android:name="com.stone.ui.TestWebView" />
-        <activity android:name="com.stone.ui.WebViewDemo" />
-        <activity android:name="com.stone.sensor.OrientationSensorActivity" />
-        <activity android:name="com.stone.opengles.BaseActivity" />
-        <activity android:name="com.stone.game.ShortTimeSoundActivity" >
-
-        </activity>
-        <activity android:name="com.stone.ui.PopupWindowActivity" />
-        <activity android:name="com.stone.ui.SurfaceViewPlayVideoActivity" />
-        <activity android:name="com.stone.ui.GestureViewFlipperActivity" />
-        <activity android:name="com.stone.ui.TestTransitionDrawable" />
-        <activity android:name="com.stone.ui.TestLayerList" />
-        <activity android:name="com.stone.ui.TestExpandableListView" />
-        <activity android:name="com.stone.ui.TestFragmentActivity" />
-        <activity android:name="com.stone.ui.TestPreferenceFragmentActivity" />
-        <activity android:name="com.stone.ui.TestPreferenceFragmentHeaderActivity" />
-        <activity android:name="com.stone.ui.TestCustomPreferenceActivity" />
-        <activity android:name="com.stone.ui.TestPreferenceActivity" >
-            <intent-filter>
-                <action android:name="com.stone.action.TestPreferenceActivity"/>
-                <!-- 表示这里面提供了一个网络控制的设置(需要自行添加，比如控制在联上wifi时才下载等 选项供用户设置) -->
-                <action android:name="android.intent.action.MANAGE_NETWORK_USAGE" />
-            </intent-filter>
-        </activity> 
-        <activity android:name="com.stone.ui.TestActivityLunchMode"/>
-        <activity android:name="com.stone.ui.TestMode1" />
-        <activity android:name="com.stone.ui.TestMode2" android:launchMode="singleTop" />
-        <activity android:name="com.stone.ui.TestMode3" android:launchMode="singleTask" />
-        <activity android:name="com.stone.ui.TestMode4" android:launchMode="singleInstance" />
-        <activity android:name="com.stone.ui.TestLoaderActivity"  />
-        <activity android:name="com.stone.ui.RotateBitmapActivity"  />
-        <activity android:name="com.stone.ui.TestEditTextSpannable"  />
-        <activity android:name="com.stone.ui.PropertyAnimationActivity"  />
-        <activity android:name="com.stone.ui.ListViewActivityByLoader"  />
-        <activity android:name="com.stone.ui.HandlerActivity"  />
-        <activity android:name="com.stone.ui.TestGesture"  />
-        <activity android:name="com.stone.ui.TestOpenGLES"  />
-        <activity android:name="com.stone.ui.ViewAnimationActivity"  />
-        <activity android:name="com.stone.ui.TestCustomViewActivity"  />
-        <activity android:name="com.stone.ui.TestRotateCircleViewActivity"  />
-        <activity android:name="com.stone.ui.TestSwipeRefreshLayout"  />
-        <activity android:name="com.stone.ui.DrawerLayoutActivity" android:theme="@android:style/Theme.Holo"/>
-        <activity android:name="com.stone.ui.KeyguardManagerActi"  />
-        <activity android:name="com.stone.ui.VelocityTrackerActi"  />
-        <activity android:name="com.stone.ui.NotificationActi"  />
-        <activity android:name="com.stone.ui.AudioFocusActi"  />
-        <activity android:name="com.stone.ui.SystemFontActivity"  />
-        <activity android:name="com.stone.ui.AddWidgetActivity"  />
-        <activity android:name="com.stone.ui.AppWidgetConfigureActivity"  >
-            <intent-filter>
-                <!-- widget的配置 需要filter 如下action -->
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
-            </intent-filter>
-        </activity>
-        <activity android:name="com.stone.ui.TestTabWidget"  />
-        <activity android:name="com.stone.ui.TestActionBar"
-            android:theme="@android:style/Theme.Holo.Light" />
-        <activity android:name="com.stone.ui.TestActionBar2"
-            android:theme="@android:style/Theme.Holo.Light"
-            android:uiOptions="splitActionBarWhenNarrow"/><!--  splitActionBarWhenNarrow表示 拆分操作栏，导航在顶部，操作项在底部 -->
-        <receiver android:name="com.stone.ui.TestMode1$MyReceiver">
-            <intent-filter >
-                <action android:name="com.stone.action.test.broad1"/>
-                <action android:name="com.stone.action.test.broad2"/>
-            </intent-filter>
-         </receiver>
-         <receiver android:name="com.stone.receiver.TimerWidgetProvider">
-             <intent-filter>
-                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-                 <action android:name="com.stone.action.start"/>
-             </intent-filter>
-             <meta-data android:name="android.appwidget.provider"
-                 android:resource="@xml/timer_widget_provider"/>
-         </receiver>
-         <receiver android:name="com.stone.receiver.WidgetSetProvider">
-             <intent-filter>
-                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-                 <action android:name="com.stone.action.clickset"/>
-                 <action android:name="com.stone.action.clickset.item"/>
-             </intent-filter>
-             <meta-data android:name="android.appwidget.provider"
-                 android:resource="@xml/set_widget_provider"/>
-         </receiver>
-         <service android:name="com.stone.service.TimerWidgetService"/>
-         <service android:name="com.stone.service.WidgetSetService" 
-             android:permission="android.permission.BIND_REMOTEVIEWS" />
-        
-    </application>
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.stone" />
     <!-- 使用网络 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- wifi状态 -->
@@ -138,21 +28,21 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- 允许程序改变WiFi连接状态 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <!-- 允许程序改变网络连接状态 -->	
+    <!-- 允许程序改变网络连接状态 -->
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <!-- 改变WiFi多播状态 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
-    
+
     <!-- 查询网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- 读取电话状态 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- 使用照相机 -->
     <uses-permission android:name="android.permission.CAMERA" />
-	<!-- uses-feature 如果用户设备不支持，在market中是搜索不到本应用的 -->
+    <!-- uses-feature 如果用户设备不支持，在market中是搜索不到本应用的 -->
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-	<!-- 闪光灯 -->
+    <!-- 闪光灯 -->
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <!-- 写入sd卡 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -169,11 +59,164 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 精确的gps定位 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- context.sendStickyBroadcast  -->
-	<uses-permission android:name="android.permission.BROADCAST_STICKY"/>
-	<!-- 解除锁屏权限 -->
-	<uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
-	<!-- 改变系统配置 -->
-	<uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
-	
-</manifest> 
+    <!-- context.sendStickyBroadcast -->
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <!-- 解除锁屏权限 -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <!-- 改变系统配置 -->
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+
+    <application
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" > <!-- hardwareAccelerated 硬件加速，默认为true，即打开状态 api14以上才默认打开 -->
+        <!--  -->
+        <uses-library android:name="android.test.runner" />
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:configChanges="orientation|keyboard"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.GalleryTestActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".ui.GameViewActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity android:name=".ui.TestSqliteActivity" />
+        <activity android:name=".ui.TestWebView" />
+        <activity android:name=".ui.WebViewDemo" />
+        <activity android:name=".sensor.OrientationSensorActivity" />
+        <activity android:name=".opengles.BaseActivity" />
+        <activity android:name=".game.ShortTimeSoundActivity" >
+        </activity>
+        <activity android:name=".ui.PopupWindowActivity" />
+        <activity android:name=".ui.SurfaceViewPlayVideoActivity" />
+        <activity android:name=".ui.GestureViewFlipperActivity" />
+        <activity android:name=".ui.TestTransitionDrawable" />
+        <activity android:name=".ui.TestLayerList" />
+        <activity android:name=".ui.TestExpandableListView" />
+        <activity android:name=".ui.TestFragmentActivity" />
+        <activity android:name=".ui.TestPreferenceFragmentActivity" />
+        <activity android:name=".ui.TestPreferenceFragmentHeaderActivity" />
+        <activity android:name=".ui.TestCustomPreferenceActivity" />
+        <activity android:name=".ui.TestPreferenceActivity" >
+            <intent-filter>
+                <action android:name="com.stone.action.TestPreferenceActivity" />
+                <!-- 表示这里面提供了一个网络控制的设置(需要自行添加，比如控制在联上wifi时才下载等 选项供用户设置) -->
+                <action android:name="android.intent.action.MANAGE_NETWORK_USAGE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.TestActivityLunchMode" />
+        <activity android:name=".ui.TestMode1" />
+        <activity
+            android:name=".ui.TestMode2"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.TestMode3"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.TestMode4"
+            android:launchMode="singleInstance" />
+        <activity android:name=".ui.TestLoaderActivity" />
+        <activity android:name=".ui.RotateBitmapActivity" />
+        <activity android:name=".ui.TestEditTextSpannable" />
+        <activity android:name=".ui.PropertyAnimationActivity" />
+        <activity android:name=".ui.ListViewActivityByLoader" />
+        <activity android:name=".ui.HandlerActivity" />
+        <activity android:name=".ui.TestGesture" />
+        <activity android:name=".ui.TestOpenGLES" />
+        <activity android:name=".ui.ViewAnimationActivity" />
+        <activity android:name=".ui.TestCustomViewActivity" />
+        <activity android:name=".ui.TestRotateCircleViewActivity" />
+        <activity android:name=".ui.TestSwipeRefreshLayout" />
+        <activity
+            android:name=".ui.DrawerLayoutActivity"
+            android:theme="@android:style/Theme.Holo" />
+        <activity android:name=".ui.KeyguardManagerActi" />
+        <activity android:name=".ui.VelocityTrackerActi" />
+        <activity android:name=".ui.NotificationActi" />
+        <activity android:name=".ui.AudioFocusActi" />
+        <activity android:name=".ui.SystemFontActivity" />
+        <activity android:name=".ui.AddWidgetActivity" />
+        <activity android:name=".ui.AppWidgetConfigureActivity" >
+            <intent-filter>
+
+                <!-- widget的配置 需要filter 如下action -->
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.TestTabWidget" />
+        <activity
+            android:name=".ui.TestActionBar"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".ui.TestActionBar2"
+            android:theme="@android:style/Theme.Holo.Light"
+            android:uiOptions="splitActionBarWhenNarrow" /> <!-- splitActionBarWhenNarrow表示 拆分操作栏，导航在顶部，操作项在底部 -->
+        <activity
+            android:name=".ui.TestFileProviderActivity"
+            android:label="@string/title_activity_test_file_provider" >
+        </activity>
+        <activity
+            android:name=".ui.GsonVolleyActivity"
+            android:label="GsonVolleyActivity" >
+        </activity>
+
+        <receiver android:name=".ui.TestMode1$MyReceiver" >
+            <intent-filter>
+                <action android:name="com.stone.action.test.broad1" />
+                <action android:name="com.stone.action.test.broad2" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.TimerWidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.stone.action.start" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/timer_widget_provider" />
+        </receiver>
+        <receiver android:name=".receiver.WidgetSetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.stone.action.clickset" />
+                <action android:name="com.stone.action.clickset.item" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/set_widget_provider" />
+        </receiver>
+
+        <service android:name=".service.TimerWidgetService" />
+        <service
+            android:name=".service.WidgetSetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <provider
+            android:authorities="com.stone.my.file.provider"
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false">
+            <!-- exported="true" 表示 可以 与其他application 交互-->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+            <grant-uri-permission
+                android:pathPrefix="**myimages**" />
+        </provider>
+
+    </application>
+
+</manifest>

@@ -94,7 +94,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				"VelocityTrackerActi",
 				"NotificationActi",
 				"AudioFocusActi",
-				"修改系统字体 SystemFontActivity"
+				"修改系统字体 SystemFontActivity",
+				"TestFileProviderActivity",
+				"测试volley，请求json和图片"
 				
 		};
 	}
@@ -222,6 +224,12 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				break;
 			case 38: // Test SystemFontActivity
 				startActi(SystemFontActivity.class);
+				break;
+			case 39: // Test FileProviderActivity
+				startActi(TestFileProviderActivity.class);
+				break;
+			case 40: // Test FileProviderActivity
+				startActi(GsonVolleyActivity.class);
 				break;
 			default:
 				break;

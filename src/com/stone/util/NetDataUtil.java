@@ -40,7 +40,7 @@ import android.net.NetworkInfo;
 import android.util.Log;
 
 import com.stone.R;
-import com.stone.reqvo.RequestVo;
+import com.stone.request.RequestVo;
 
 /**
  * 网络数据请求操作
