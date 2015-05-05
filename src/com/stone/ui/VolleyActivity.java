@@ -41,7 +41,7 @@ import java.util.List;
  *
  * volley 需要min sdk 为 api8
  */
-public class GsonVolleyActivity extends Activity {
+public class VolleyActivity extends Activity {
 
     private RequestQueue mRequestQueue;
     private ImageView iv_img1, iv_img2;
@@ -245,12 +245,13 @@ public class GsonVolleyActivity extends Activity {
                             //直接如下使用是可以的
 //                            List<User> list = new Gson().fromJson(jsonRequest.getData().toString(),
 // new TypeToken<List<User>>() {}.getType());
+                            StringBuilder builder = new StringBuilder();
                             for (User user : list) {
-                                tvJson.setText("id is " + user.getId()
-                                                + "; name is " + user.getName()
-                                                + "; age is " + user.getAge()
-                                );
+                                builder.append("\nid is " + user.getId());
+                                builder.append("; name is " + user.getName());
+                                builder.append("; age is " + user.getAge());
                             }
+                            tvJson.setText(builder.toString());
                         }
                     }
                 },
@@ -321,7 +322,6 @@ public class GsonVolleyActivity extends Activity {
     }
 
     public void requestXml(View view) {
-        final StringBuilder builder = new StringBuilder();
         XMLRequest request = new XMLRequest(WEATHER_XML_ADDRESS,
                 new Response.Listener<XmlPullParser>() {
 
@@ -329,6 +329,7 @@ public class GsonVolleyActivity extends Activity {
                     public void onResponse(XmlPullParser response) {
                         try {
                             int eventType = response.getEventType();
+                            StringBuilder builder = new StringBuilder();
                             while (eventType != XmlPullParser.END_DOCUMENT) {
                                 switch (eventType) {
                                     case XmlPullParser.START_TAG:
