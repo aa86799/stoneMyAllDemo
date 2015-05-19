@@ -1,5 +1,7 @@
 package com.stone.ui;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -55,8 +57,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	private void initDatas() {
 		mDatas = new String[] {
 				"Gallery 加 ImageSwitcher",
-				"ViewFlipper手势滑动切换",
-				"MultipleClick 防多次点击",
+				"GestureViewFlipperActivity",
+				"MultipleClickProcess",
 				"PopupWindowActivity",
 				"TestSqliteActivity",
 				"TestWebView",
@@ -94,9 +96,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				"AudioFocusActi",
 				"修改系统字体 SystemFontActivity",
 				"TestFileProviderActivity",
-				"测试volley，请求json和图片",
-				"测试多线程",
-				"测试EventBus"
+				"测试volley，请求json和图片"
 				
 		};
 	}
@@ -229,13 +229,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				startActi(TestFileProviderActivity.class);
 				break;
 			case 40: // Test FileProviderActivity
-				startActi(VolleyActivity.class);
-				break;
-			case 41: // Test ConcurrentActivity
-				startActi(ConcurrentActivity.class);
-				break;
-			case 42: // Test EventBusActivity
-				startActi(EventBusActivity.class);
+				startActi(GsonVolleyActivity.class);
 				break;
 			default:
 				break;

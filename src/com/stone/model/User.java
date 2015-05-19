@@ -1,7 +1,5 @@
 package com.stone.model;
 
-import android.view.View;
-
 /**
  * author : stone
  * email  : aa86799@163.com
@@ -46,7 +44,4 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
-
-
-
 }
