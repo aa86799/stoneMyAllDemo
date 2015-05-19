@@ -168,9 +168,12 @@
             android:label="@string/title_activity_test_file_provider" >
         </activity>
         <activity
-            android:name=".ui.GsonVolleyActivity"
-            android:label="GsonVolleyActivity" >
+            android:name=".ui.VolleyActivity"
+            android:label="VolleyActivity" >
         </activity>
+        <activity android:name=".ui.ConcurrentActivity" android:label="ConcurrentActivity"/>
+        <activity android:name=".ui.EventBusActivity" android:label="EventBusActivity"/>
+        <activity android:name=".ui.EventBusActivity2" android:label="EventBusActivity2"/>
 
         <receiver android:name=".ui.TestMode1$MyReceiver" >
             <intent-filter>
