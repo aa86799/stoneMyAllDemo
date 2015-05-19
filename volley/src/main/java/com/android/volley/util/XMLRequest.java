@@ -1,4 +1,4 @@
-package com.stone.util;
+package com.android.volley.util;
 
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;

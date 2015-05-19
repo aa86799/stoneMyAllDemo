@@ -22,9 +22,9 @@ import com.stone.model.Weather;
 import com.stone.model.WeatherInfo;
 import com.stone.model.JsonAllUserRequest;
 import com.stone.model.JsonArrayRequest;
-import com.stone.util.GsonObjectRequest;
-import com.stone.util.GsonUtil;
-import com.stone.util.XMLRequest;
+import com.android.volley.util.GsonObjectRequest;
+import com.android.volley.util.GsonUtil;
+import com.android.volley.util.XMLRequest;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -247,7 +247,7 @@ public class VolleyActivity extends Activity {
 // new TypeToken<List<User>>() {}.getType());
                             StringBuilder builder = new StringBuilder();
                             for (User user : list) {
-                                builder.append("\nid is " + user.getId());
+                                builder.append("requestJsonObject:\nid is " + user.getId());
                                 builder.append("; name is " + user.getName());
                                 builder.append("; age is " + user.getAge());
                             }
@@ -302,7 +302,7 @@ public class VolleyActivity extends Activity {
                     public void onResponse(JsonAllUserRequest response) {
                         List<User> list = response.getData();
                         for (User user : list) {
-                            builder.append("\nid is " + user.getId());
+                            builder.append("requestGson:\nid is " + user.getId());
                             builder.append("; name is " + user.getName());
                             builder.append("; age is " + user.getAge());
                         }
