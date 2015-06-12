@@ -12,7 +12,6 @@
         android:key="depart_value"
         android:title="部门设置" >
     </ListPreference>
-
     <PreferenceScreen
         android:key="ps_ring"
         android:title="铃声设置"

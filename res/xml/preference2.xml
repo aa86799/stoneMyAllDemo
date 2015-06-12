@@ -8,7 +8,7 @@
         android:defaultValue="true"
         android:key="apply_wireless"
         android:summary="使用无线网络在应用程序（例如Google地图）中查看位置"
-        android:title="使用无线网络" >
+        android:title="使用无线网络">
     </CheckBoxPreference>
 
 

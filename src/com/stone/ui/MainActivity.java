@@ -96,8 +96,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				"TestFileProviderActivity",
 				"测试volley，请求json和图片",
 				"测试多线程",
-				"测试EventBus"
-				
+				"测试EventBus",
+				"测试v4-SlidingPaneLayout"
+
 		};
 	}
 	
@@ -236,6 +237,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				break;
 			case 42: // Test EventBusActivity
 				startActi(EventBusActivity.class);
+				break;
+			case 43: // Test SlidingPaneLayoutActi
+				startActi(SlidingPaneLayoutActi.class);
 				break;
 			default:
 				break;

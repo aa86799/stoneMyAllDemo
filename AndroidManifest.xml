@@ -174,6 +174,7 @@
         <activity android:name=".ui.ConcurrentActivity" android:label="ConcurrentActivity"/>
         <activity android:name=".ui.EventBusActivity" android:label="EventBusActivity"/>
         <activity android:name=".ui.EventBusActivity2" android:label="EventBusActivity2"/>
+        <activity android:name=".ui.SlidingPaneLayoutActi" android:label="SlidingPaneLayoutActi"/>
 
         <receiver android:name=".ui.TestMode1$MyReceiver" >
             <intent-filter>

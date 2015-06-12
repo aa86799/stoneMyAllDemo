@@ -18,11 +18,24 @@ public class TestPreferenceFragmentHeaderActivity extends PreferenceActivity {
 	@Override	//>=3.0时 会直接调用该函数 不调用onCreate
 	public void onBuildHeaders(List<Header> target) {
 		super.onBuildHeaders(target);
-		//加载 偏好头文件, 头文件中可以使用多个fragment来加载不同的preference文件； 也可以使用同一个，用<extra>来区分， getArguments.getString 来取出
+		/*
+		 加载 偏好头文件, 头文件中可以使用多个fragment来加载不同的preference文件；
+		 也可以使用同一个，用<extra>来区分， getArguments.getString 来取出
+		 */
 		loadHeadersFromResource(R.xml.preference_header, target);
 		LogUtils.printInfo("", "加载了header偏好头文件");
 	}
-	
+
+	/*
+	android4.4 KITKAT 修复了该漏洞，要重写  具体百度：Android框架层漏洞-Fragment注入
+	 */
+	@Override
+	protected boolean isValidFragment(String fragmentName) {
+//		return super.isValidFragment(fragmentName);
+		return true;
+	}
+
+
 	@Override	//小于3.0时 加载
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
