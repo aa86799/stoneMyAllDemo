@@ -8,12 +8,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 import com.stone.R;
@@ -32,7 +34,9 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * author : stone
@@ -81,6 +85,13 @@ public class VolleyActivity extends Activity {
 		另外可以继承Request<T>自定义Request。
 
 		如果是post|put 请求。需要重写Request的getParams方法，put相应的参数进去。
+
+		如果客户端的请求就是是一个json请求，
+		    Map<String, String> map = new HashMap<String, String>();
+            map.put("name1", "value1");
+            map.put("name2", "value2");
+            JSONObject jsonObject = new JSONObject(params);
+             new JsonObjectRequest(Method.POST,url, jsonObject..)
 	 */
 
     @Override
@@ -261,10 +272,19 @@ public class VolleyActivity extends Activity {
                     public void onErrorResponse(VolleyError error) {
                         System.out.println("requestJsonObject - error");
                     }
-                });
+                }){
+            @Override  //如果是 post  有请求参数时
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("name1", "value1");
+                map.put("name2", "value2");
+                return map;
+            }
+        };
 
         mRequestQueue.add(request);
         mRequestQueue.start();
+
     }
 
     /*

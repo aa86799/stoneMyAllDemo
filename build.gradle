@@ -54,8 +54,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
     compile project(':eventbuslib')
     compile project(':volley')
+    //    compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:support-v4:22.2.0'
-//    compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.google.code.gson:gson:2.3.1'
 }
 

@@ -1,27 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <layer-list
+<layer-list
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:bottom="1dp">  
-        <shape>  
-            <solid android:color="#aaFF0000"/>  
-        </shape>  
-    </item>  
+    <item android:bottom="1dp">
+        <shape>
+            <!--填充  红色-->
+            <solid android:color="#ff0000"/>
+            <!--边角半径-->
+            <corners android:radius="10dp" />
+            <!--边框：width边的厚度(高度)    dashWidth短线的宽度，dashGap短线间的间隔距离
+                只有width时，边就是相连的
+                有dashWidth、dashGap时，边中间就有空白间隔了，绘制的每一段，宽为dashWidth，高为width
+            -->
+            <stroke android:width="12dp" android:color="#0000ff"
+                    android:dashWidth="2dp" android:dashGap="5dp"/>
+            <!--距离四个方向的 padding  表示后一层距离某方向-->
+            <padding android:top="10dp"/>
+        </shape>
+    </item>
     
     <!--     每个item都一个图形层，整个list就是合并了这些图形层的 总层 -->
- <!--  angle 角度:只能是45的倍数，只有当type=linear时才有用
-                dither 是否支持渐变色彩 --> 
+ <!--
+ gradient 渐变
+ angle 角度:只能是45的倍数，只有当type=linear时才有用
+                dither 是否支持渐变色彩 -->
     <item>
         <shape>
- 			 <gradient 
+ 			 <gradient
                 android:startColor="#cca6a6a6"
                 android:centerColor="#ccdbdbdb"
                 android:endColor="#cce7e7e7"
                 android:height="1px"
 				android:type="linear"
-                android:angle="90"			
-                android:dither="true"      
-                />
-              
+                android:angle="90"
+                android:useLevel="true"
+                android:dither="true" />
+            <padding android:top="10dp" android:bottom="10dp" android:left="5dp"
+                     android:right="5dp"/>
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="oval" >
+            <!--填充  黄色-->
+            <solid android:color="#ffff00"/>
+        </shape>
+    </item>
+    <item>
+        <!--
+         下面的属性只有在android:shape="ring时可用
+         两个inner取其一
+  android:innerRadius 尺寸，内环的半径。
+  android:innerRadiusRatio	浮点型，如果该值为5，表示环的宽度除以5，默认为9.以比值作半径,比值越大，半径越小
+        两个thick取其一
+  android:thickness	尺寸，环的厚度
+  android:thicknessRatio	浮点型，如果该值为5，表示环的宽度除以5，默认为3。以比值作厚度，比值越大，厚度越小
+
+  android:useLevel	boolean值，如果当做是LevelListDrawable使用时值为true，否则为false.
+
+  -->
+        <shape
+               android:shape="ring"
+               android:innerRadiusRatio="8"
+
+               android:thicknessRatio="20"
+
+               android:useLevel="false">
+            <stroke android:width="5dp"  android:color="#ff0000" />
+            <solid android:color="#0f00f0"  />
         </shape>
     </item>
 </layer-list>

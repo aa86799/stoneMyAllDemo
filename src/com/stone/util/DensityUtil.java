@@ -13,16 +13,28 @@ public class DensityUtil {
 	private static final String TAG = DensityUtil.class.getSimpleName();
 	
 	// 当前屏幕的densityDpi
-	private static float dmDensityDpi = 0.0f;
-	private static DisplayMetrics dm;
-	private static float scale = 0.0f;
+	private float dmDensityDpi = 0.0f;
+	private DisplayMetrics dm;
+	private float scale = 0.0f;
+
+	public static class Builder {
+		private static DensityUtil instance;
+
+
+		public static DensityUtil build(Context context) {
+			if (instance == null) {
+				instance = new DensityUtil(context);
+			}
+			return instance;
+		}
+	}
 
 	/**
 	 * 
 	 * 根据构造函数获得当前手机的屏幕系数
 	 * 
 	 * */
-	public DensityUtil(Context context) {
+	private DensityUtil(Context context) {
 		// 获取当前屏幕
 		dm = context.getApplicationContext().getResources().getDisplayMetrics();
 		// 设置DensityDpi
@@ -38,7 +50,7 @@ public class DensityUtil {
 	 * @param DmDensity
 	 * @retrun DmDensity Getter
 	 * */
-	public static float getDmDensityDpi() {
+	public float getDmDensityDpi() {
 		return dmDensityDpi;
 	}
 
@@ -48,14 +60,14 @@ public class DensityUtil {
 	 * @param DmDensity
 	 * @retrun DmDensity Setter
 	 * */
-	public static void setDmDensityDpi(float dmDensityDpi) {
-		DensityUtil.dmDensityDpi = dmDensityDpi;
+	public void setDmDensityDpi(float dmDensityDpi) {
+		this.dmDensityDpi = dmDensityDpi;
 	}
 
 	/**
 	 * 密度转换像素
 	 * */
-	public static int dip2px(float dipValue) {
+	public int dip2px(float dipValue) {
 		return (int) (dipValue * scale + 0.5f);
 	}
 

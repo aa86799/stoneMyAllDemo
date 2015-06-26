@@ -65,6 +65,17 @@
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <!-- 改变系统配置 -->
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 相机 If you are using the camera via an intent, your application does not need to request this permission -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!-- 记录音频和视频捕获、音频捕捉应用程序必须请求许可。 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <!-- 如果您的应用程序标记图像与GPS定位信息,您必须请求许可位置 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:hardwareAccelerated="true"
@@ -171,10 +182,18 @@
             android:name=".ui.VolleyActivity"
             android:label="VolleyActivity" >
         </activity>
-        <activity android:name=".ui.ConcurrentActivity" android:label="ConcurrentActivity"/>
-        <activity android:name=".ui.EventBusActivity" android:label="EventBusActivity"/>
-        <activity android:name=".ui.EventBusActivity2" android:label="EventBusActivity2"/>
-        <activity android:name=".ui.SlidingPaneLayoutActi" android:label="SlidingPaneLayoutActi"/>
+        <activity
+            android:name=".ui.ConcurrentActivity"
+            android:label="ConcurrentActivity" />
+        <activity
+            android:name=".ui.EventBusActivity"
+            android:label="EventBusActivity" />
+        <activity
+            android:name=".ui.EventBusActivity2"
+            android:label="EventBusActivity2" />
+        <activity
+            android:name=".ui.SlidingPaneLayoutActi"
+            android:label="SlidingPaneLayoutActi" />
 
         <receiver android:name=".ui.TestMode1$MyReceiver" >
             <intent-filter>
@@ -210,17 +229,36 @@
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <provider
-            android:authorities="com.stone.my.file.provider"
             android:name="android.support.v4.content.FileProvider"
-            android:exported="false">
-            <!-- exported="true" 表示 可以 与其他application 交互-->
+            android:authorities="com.stone.my.file.provider"
+            android:exported="false" >
+
+            <!-- exported="true" 表示 可以 与其他application 交互 -->
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths" />
-            <grant-uri-permission
-                android:pathPrefix="**myimages**" />
+
+            <grant-uri-permission android:pathPrefix="**myimages**" />
         </provider>
 
+        <activity
+            android:name=".ui.FloatActionBarActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_camera"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
+        <activity
+            android:name=".ui.CameraActivity"
+            android:label="@string/title_activity_camera" >
+        </activity>
+        <activity
+            android:name=".ui.SystemCameraActivity"
+            android:label="SystemCameraActivity" >
+        </activity>
+        <activity
+            android:name=".ui.ViewStubActivity"
+            android:label="@string/title_activity_view_stub" >
+        </activity>
     </application>
 
 </manifest>
