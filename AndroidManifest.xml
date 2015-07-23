@@ -194,6 +194,33 @@
         <activity
             android:name=".ui.SlidingPaneLayoutActi"
             android:label="SlidingPaneLayoutActi" />
+        <activity
+            android:name=".ui.InvertedMirrorActivity"
+            android:label="InvertedMirrorActivity" />
+        <activity
+            android:name=".ui.Xfermodes"
+            android:label="Xfermodes" />
+        <activity
+            android:name=".ui.ShaderActivity"
+            android:label="BitmapShaderActivity" />
+        <activity
+            android:name=".ui.RoundRectShapeActivity"
+            android:label="RoundRectShapeActivity" />
+        <activity
+            android:name=".ui.RectShapeActivity"
+            android:label="RectShapeActivity" />
+        <activity
+            android:name=".ui.ArcShapeActivity"
+            android:label="ArcShapeActivity" />
+        <activity
+            android:name=".ui.OvalShapeActivity"
+            android:label="OvalShapeActivity" />
+        <activity
+            android:name=".ui.PathShapeActivity"
+            android:label="PathShapeActivity" />
+        <activity
+            android:name=".ui.MatrixActivity"
+            android:label="MatrixActivity" />
 
         <receiver android:name=".ui.TestMode1$MyReceiver" >
             <intent-filter>

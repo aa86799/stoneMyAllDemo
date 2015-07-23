@@ -272,7 +272,7 @@ public class VolleyActivity extends Activity {
                     public void onErrorResponse(VolleyError error) {
                         System.out.println("requestJsonObject - error");
                     }
-                }){
+                })/*{
             @Override  //如果是 post  有请求参数时
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
@@ -280,7 +280,7 @@ public class VolleyActivity extends Activity {
                 map.put("name2", "value2");
                 return map;
             }
-        };
+        }*/;
 
         mRequestQueue.add(request);
         mRequestQueue.start();

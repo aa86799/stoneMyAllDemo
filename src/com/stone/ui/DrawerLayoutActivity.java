@@ -23,9 +23,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -261,8 +259,7 @@ public class DrawerLayoutActivity extends Activity {
 	            //测试imageutil 方法 start
 	            Drawable drawable = getResources().getDrawable(imageId);
 	            Bitmap drawableToBitmap = ImageUtil.drawableToBitmap(drawable);
-	            Bitmap mirrorImageReverse = ImageUtil.mirrorImageReverse(drawableToBitmap);//水平镜像反转
-	            Bitmap createReflectionImageWithOrigin = ImageUtil.createReflectionImageWithOrigin(mirrorImageReverse);//倒影
+	            Bitmap createReflectionImageWithOrigin = ImageUtil.createReflectionImageWithOrigin(drawableToBitmap);//倒影
 	            ((ImageView) rootView.findViewById(R.id.image)).setImageBitmap(createReflectionImageWithOrigin);
 	            //测试imageutil 方法 end
 	            

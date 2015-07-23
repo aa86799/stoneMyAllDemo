@@ -101,7 +101,16 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 "官方新建一个全屏activity的 默认效果",
                 "测试相机拍照",
                 "测试系统相机",
-                "ViewStub 占位符性质的 View"
+                "ViewStub 占位符性质的 View",
+                "InvertedMirror 倒影 镜像",
+                "ApiDemos -- Xfermodes",
+                "ShaderActivity",
+                "RoundRectShapeActivity",
+                "RectShapeActivity",
+                "ArcShapeActivity",
+                "OvalShapeActivity",
+                "PathShapeActivity",
+                "MatrixActivity"
 
         };
     }
@@ -254,8 +263,35 @@ public class MainActivity extends Activity implements OnItemClickListener {
             case 46: //
                 startActi(SystemCameraActivity.class);
                 break;
-            case 47: //
+            case 47: //占位view: ViewStub
                 startActi(ViewStubActivity.class);
+                break;
+            case 48: //倒影 镜像
+                startActi(InvertedMirrorActivity.class);
+                break;
+            case 49:
+                startActi(Xfermodes.class);
+                break;
+            case 50:
+                startActi(ShaderActivity.class);
+                break;
+            case 51:
+                startActi(RoundRectShapeActivity.class);
+                break;
+            case 52:
+                startActi(RectShapeActivity.class);
+                break;
+            case 53:
+                startActi(ArcShapeActivity.class);
+                break;
+            case 54:
+                startActi(OvalShapeActivity.class);
+                break;
+            case 55:
+                startActi(PathShapeActivity.class);
+                break;
+            case 56:
+                startActi(MatrixActivity.class);
                 break;
             default:
                 break;

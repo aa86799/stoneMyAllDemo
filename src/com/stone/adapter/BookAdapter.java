@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.stone.R;
 import com.stone.receiver.Book;
+import com.stone.util.EncodeUtil;
 import com.stone.util.ImageUtil;
 
 public class BookAdapter extends BaseAdapter {
@@ -62,7 +63,7 @@ public class BookAdapter extends BaseAdapter {
 		imgUrl = book.imgUrl; 
 		final ImageView imgView = holder.ivBook;
 				
-		String imagePath = ImageUtil.getCacheImgPath().concat(ImageUtil.md5(book.imgUrl) + ".png");
+		String imagePath = ImageUtil.getCacheImgPath().concat(EncodeUtil.md5(book.imgUrl) + ".png");
 		Bitmap bitmap=null;
 		//弱引用 中bitmap 有对象
 		if (bitmaps.get(position) != null && (bitmap = bitmaps.get(position).get())!=null);

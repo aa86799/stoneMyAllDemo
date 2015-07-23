@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
-import java.security.MessageDigest;
 
 import android.content.Context;
+
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.Bitmap.Config;
@@ -25,6 +25,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
+import android.widget.ImageView;
 
 public class ImageUtil {
 	private static final String TAG = "ImageUtil";
@@ -197,40 +198,7 @@ public class ImageUtil {
 		return SDCARD_CACHE_IMG_PATH;
 	}
 	
-	/**
-	 * MD5加密
-	 * @param paramString 要加密字符串
-	 * @return 加密后字符串
-	 */
-	public static String md5(String paramString) {
-		String returnStr;
-		try {
-			MessageDigest localMessageDigest = MessageDigest.getInstance("MD5");
-			localMessageDigest.update(paramString.getBytes());
-			returnStr = byteToHexString(localMessageDigest.digest());
-			return returnStr;
-		} catch (Exception e) {
-			return paramString;
-		}
-	}
 
-	/**
-	 * 将指定byte数组转换成16进制字符串
-	 * 
-	 * @param b
-	 * @return 
-	 */
-	private static String byteToHexString(byte[] b) {
-		StringBuffer hexString = new StringBuffer();
-		for (int i = 0; i < b.length; i++) {
-			String hex = Integer.toHexString(b[i] & 0xFF);
-			if (hex.length() == 1) {
-				hex = '0' + hex;
-			}
-			hexString.append(hex.toUpperCase());
-		}
-		return hexString.toString();
-	}
 	
 	/**
 	 * 
@@ -259,7 +227,12 @@ public class ImageUtil {
 		return bd.getBitmap();
 		
 	}
-	
+
+    /**
+     * 转换Bitmap为Drawable
+     * @param bitmap
+     * @return
+     */
 	public static Drawable bitmapToDrawable(Bitmap bitmap) {
 		return new BitmapDrawable(bitmap);
 	}
@@ -275,54 +248,81 @@ public class ImageUtil {
 		int height = bitmap.getHeight();
 
 		Matrix matrix = new Matrix(); 
-		matrix.preScale(1, -1);
-
+		matrix.postScale(1, -1); //垂直变换
+        //裁剪原图的(0,w/2,w,w/2)位置上的矩形  以matrix变换  即垂直翻转
 		Bitmap reflectionImage = Bitmap.createBitmap(bitmap, 0, height/2, width, height/2, matrix, false);
-
+        //创建新的可变位图：宽w，高1.5h
 		Bitmap bitmapWithReflection = Bitmap.createBitmap(width, (height + height/2), Config.ARGB_8888);
-
-		Canvas canvas = new Canvas(bitmapWithReflection); 
-		canvas.drawBitmap(bitmap, 0, 0, null); 
-		Paint deafalutPaint = new Paint(); 
-		canvas.drawRect(0, height,width,height + reflectionGap, deafalutPaint);
-
+        //以位图创建画布
+		Canvas canvas = new Canvas(bitmapWithReflection);
+        //绘制原图  这时宽高占 画布(或者说新位图)的100%和2/3
+		canvas.drawBitmap(bitmap, 0, 0, null);
+        Paint paint = new Paint();
+        //绘制倒立图的矩形区
+		canvas.drawRect(0, height,width,height + reflectionGap, paint);
+        //绘制倒立图
 		canvas.drawBitmap(reflectionImage, 0, height + reflectionGap, null);
-		//上面绘制倒立图像，下面绘制阴影
-		Paint paint = new Paint(); 
-		LinearGradient shader = new LinearGradient(0, bitmap.getHeight(),// 
-				0, bitmapWithReflection.getHeight() + reflectionGap, 0x70ffffff, 0x00ffffff, TileMode.CLAMP); 
-		paint.setShader(shader); 
-		// Set the Transfer mode to be porter duff and destination in 
-		paint.setXfermode(new PorterDuffXfermode(Mode.DST_IN)); 
-		// Draw a rectangle using the paint with our linear gradient 
+		//绘制阴影
+		LinearGradient shader = new LinearGradient(0, bitmap.getHeight(),//
+				0, bitmapWithReflection.getHeight() + reflectionGap, 0xabff0000, 0x00ffff00,
+                TileMode.MIRROR);
+		paint.setShader(shader);
+		// Set the Transfer mode to be porter duff and destination in
+		paint.setXfermode(new PorterDuffXfermode(Mode.DST_IN));
+		// Draw a rectangle using the paint with our linear gradient
 		canvas.drawRect(0, height, width, bitmapWithReflection.getHeight() + reflectionGap, paint);
-
-		return bitmapWithReflection; 
-	}
-	/**
-	 * 水平镜像反转
-	 * @param bitmap
-	 * @return
-	 */
-	public static Bitmap mirrorImageReverse(Bitmap bitmap) {
-		Matrix mx = new Matrix();
-		//(sx,sy,px,py)：作用于点坐标时使点坐标以(px,py)为支点伸缩sx,sy倍. 
-		mx.postScale(-1, 1); //x方向反转，例如前置摄像头自拍时，完成的照片和预览时的照片就像反转了一样
-//		mx.postScale(1, -1); //y方向反转，例如上面的倒影
-		
-		int width = bitmap.getWidth(); 
-		int height = bitmap.getHeight();
-		Bitmap bitmapWithReflection = Bitmap.createBitmap(bitmap, 0, 0, width, height, mx, false);
 		return bitmapWithReflection;
 	}
-	
 	/**
-	 * 
-	 * @param resource
-	 * @return
-	 */
-	public static Bitmap mirrorImageReverse(Context ctx, int resource) {
-		 Bitmap drawableToBitmap = drawableToBitmap(ctx.getResources().getDrawable(resource));
-		 return mirrorImageReverse(drawableToBitmap);
-	}
+     * 水平镜像反转
+     * @param bitmap
+     * @return
+     */
+    public static Bitmap mirrorImageReverseByX(Bitmap bitmap) {
+        Matrix mx = new Matrix();
+//        mx.postScale(-1, 1); //x方向反转，例如前置摄像头自拍时，完成的照片和预览时的照片就像反转了一样
+        mx.preScale(-1, 1); //x方向反转，例如前置摄像头自拍时，完成的照片和预览时的照片就像反转了一样
+
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        Bitmap bitmapWithReflection = Bitmap.createBitmap(bitmap, 0, 0, width, height, mx, false);
+        return bitmapWithReflection;
+    }
+
+    /**
+     *
+     * @param resource
+     * @return
+     */
+    public static Bitmap mirrorImageReverseByX(Context ctx, int resource) {
+        Bitmap drawableToBitmap = drawableToBitmap(ctx.getResources().getDrawable(resource));
+        return mirrorImageReverseByX(drawableToBitmap);
+    }
+
+    /**
+     * 垂直镜像反转
+     * @param bitmap
+     * @return
+     */
+    public static Bitmap mirrorImageReverseByY(Bitmap bitmap) {
+        Matrix mx = new Matrix();
+		mx.postScale(1, -1); //y方向反转，例如绘制倒影
+
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        Bitmap bitmapWithReflection = Bitmap.createBitmap(bitmap, 0, 0, width, height, mx, false);
+        return bitmapWithReflection;
+    }
+
+    /**
+     *
+     * @param resource
+     * @return
+     */
+    public static Bitmap mirrorImageReverseByY(Context ctx, int resource) {
+        Bitmap drawableToBitmap = drawableToBitmap(ctx.getResources().getDrawable(resource));
+        return mirrorImageReverseByY(drawableToBitmap);
+    }
+
+
 }
