@@ -110,7 +110,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 "ArcShapeActivity",
                 "OvalShapeActivity",
                 "PathShapeActivity",
-                "MatrixActivity"
+                "MatrixActivity",
+                "ShadowActivity"
 
         };
     }
@@ -269,29 +270,32 @@ public class MainActivity extends Activity implements OnItemClickListener {
             case 48: //倒影 镜像
                 startActi(InvertedMirrorActivity.class);
                 break;
-            case 49:
+            case 49://shader 渲染方式
                 startActi(Xfermodes.class);
                 break;
-            case 50:
+            case 50: //shader
                 startActi(ShaderActivity.class);
                 break;
-            case 51:
+            case 51: //圆角矩形
                 startActi(RoundRectShapeActivity.class);
                 break;
-            case 52:
+            case 52: //矩形
                 startActi(RectShapeActivity.class);
                 break;
-            case 53:
+            case 53: //扇形 定一个开始角度和扫描的角度
                 startActi(ArcShapeActivity.class);
                 break;
-            case 54:
+            case 54: //椭圆
                 startActi(OvalShapeActivity.class);
                 break;
-            case 55:
+            case 55: //Path 图
                 startActi(PathShapeActivity.class);
                 break;
-            case 56:
+            case 56: //矩阵 可用在imageview 和 canvas
                 startActi(MatrixActivity.class);
+                break;
+            case 57: //阴影
+                startActi(ShadowActivity.class);
                 break;
             default:
                 break;

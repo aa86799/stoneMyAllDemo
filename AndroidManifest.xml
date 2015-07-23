@@ -221,6 +221,9 @@
         <activity
             android:name=".ui.MatrixActivity"
             android:label="MatrixActivity" />
+        <activity
+            android:name=".ui.ShadowActivity"
+            android:label="ShadowActivity" />
 
         <receiver android:name=".ui.TestMode1$MyReceiver" >
             <intent-filter>
