@@ -64,5 +64,6 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_view_stub">ViewStubActivity</string>
+    <string name="accessibility_service_description">accessibility_service_description</string>
 
 </resources>

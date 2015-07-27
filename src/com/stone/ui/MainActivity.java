@@ -111,7 +111,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 "OvalShapeActivity",
                 "PathShapeActivity",
                 "MatrixActivity",
-                "ShadowActivity"
+                "ShadowActivity",
+                "ListViewActivity"
 
         };
     }
@@ -296,6 +297,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 break;
             case 57: //阴影
                 startActi(ShadowActivity.class);
+                break;
+            case 58: //测试优化后的ViewHolder 和 Adapter
+                startActi(ListViewActivity.class);
                 break;
             default:
                 break;

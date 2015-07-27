@@ -195,6 +195,20 @@
             android:name=".ui.SlidingPaneLayoutActi"
             android:label="SlidingPaneLayoutActi" />
         <activity
+            android:name=".ui.FloatActionBarActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_camera"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".ui.CameraActivity"
+            android:label="@string/title_activity_camera" />
+        <activity
+            android:name=".ui.SystemCameraActivity"
+            android:label="SystemCameraActivity" />
+        <activity
+            android:name=".ui.ViewStubActivity"
+            android:label="@string/title_activity_view_stub" />
+        <activity
             android:name=".ui.InvertedMirrorActivity"
             android:label="InvertedMirrorActivity" />
         <activity
@@ -224,6 +238,9 @@
         <activity
             android:name=".ui.ShadowActivity"
             android:label="ShadowActivity" />
+        <activity
+            android:name=".ui.ListViewActivity"
+            android:label="ListViewActivity" />
 
         <receiver android:name=".ui.TestMode1$MyReceiver" >
             <intent-filter>
@@ -258,6 +275,13 @@
             android:name=".service.WidgetSetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
+        <service android:name=".service.MyAccessibilityService">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibilityservice" />
+        </service>
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.stone.my.file.provider"
@@ -271,24 +295,7 @@
             <grant-uri-permission android:pathPrefix="**myimages**" />
         </provider>
 
-        <activity
-            android:name=".ui.FloatActionBarActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_camera"
-            android:theme="@style/FullscreenTheme" >
-        </activity>
-        <activity
-            android:name=".ui.CameraActivity"
-            android:label="@string/title_activity_camera" >
-        </activity>
-        <activity
-            android:name=".ui.SystemCameraActivity"
-            android:label="SystemCameraActivity" >
-        </activity>
-        <activity
-            android:name=".ui.ViewStubActivity"
-            android:label="@string/title_activity_view_stub" >
-        </activity>
+
     </application>
 
 </manifest>
