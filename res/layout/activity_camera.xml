@@ -12,9 +12,15 @@
         android:layout_weight="1"/>
 
     <Button
-        android:id="@+id/button_capture"
+        android:id="@+id/btn_capturePhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Capture"/>
+        android:text="Capture Photo"/>
+    <Button
+        android:id="@+id/btn_captureVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Capture Video"/>
 </LinearLayout>

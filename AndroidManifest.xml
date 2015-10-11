@@ -18,6 +18,10 @@
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.stone" />
+
+    <!-- 记录音频和视频捕获、音频捕捉应用程序必须请求许可。 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
     <!-- 使用网络 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- wifi状态 -->
@@ -66,16 +70,9 @@
     <!-- 改变系统配置 -->
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!-- 相机 If you are using the camera via an intent, your application does not need to request this permission -->
-    <uses-permission android:name="android.permission.CAMERA" />
 
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <!-- 记录音频和视频捕获、音频捕捉应用程序必须请求许可。 -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.RECORD_VIDEO" />
-    <!-- 如果您的应用程序标记图像与GPS定位信息,您必须请求许可位置 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
 
     <application
         android:hardwareAccelerated="true"
@@ -203,7 +200,7 @@
             android:name=".ui.CameraActivity"
             android:label="@string/title_activity_camera" />
         <activity
-            android:name=".ui.SystemCameraActivity"
+            android:name=".ui.CameraSystemActivity"
             android:label="SystemCameraActivity" />
         <activity
             android:name=".ui.ViewStubActivity"
@@ -241,6 +238,13 @@
         <activity
             android:name=".ui.ListViewActivity"
             android:label="ListViewActivity" />
+        <activity
+            android:name=".ui.RecordActivity"
+            android:label="ListViewActivity"
+            android:configChanges="orientation|keyboard"/>
+        <activity
+            android:name=".ui.RecyclerViewActivity"
+            android:label="RecyclerViewActivity"/>
 
         <receiver android:name=".ui.TestMode1$MyReceiver" >
             <intent-filter>
@@ -274,13 +278,6 @@
         <service
             android:name=".service.WidgetSetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
-
-        <service android:name=".service.MyAccessibilityService">
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
-            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibilityservice" />
-        </service>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

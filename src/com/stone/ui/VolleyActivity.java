@@ -17,6 +17,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.stone.R;
 import com.stone.model.User;
@@ -379,6 +380,10 @@ public class VolleyActivity extends Activity {
                 });
         mRequestQueue.add(request);
         mRequestQueue.start();
+    }
+
+    public void uploadImg(){
+
     }
 
 }

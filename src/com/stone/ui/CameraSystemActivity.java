@@ -18,7 +18,7 @@ import java.io.File;
  * email  : aa86799@163.com
  * time   : 15/6/16 14 18
  */
-public class SystemCameraActivity extends Activity {
+public class CameraSystemActivity extends Activity {
 
     private int SystemCapture1 = 0x100;
     private int SystemCapture2 = 0x101;

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+   android:accessibilityEventTypes="typeAllMask"
+   android:accessibilityFeedbackType="feedbackSpoken"
+   android:accessibilityFlags="flagDefault"
+   android:canRetrieveWindowContent="true"
+   android:description="@string/accessibility_service_description"
+   android:notificationTimeout="100"
+   android:packageNames="com.example.android.apis"
+   android:settingsActivity="com.example.android.accessibility.ServiceSettingsActivity" />
+
+
+    <!--更多关于可以被用在可访问性服务配置文件的XML属性信息，可以根据下面这些链接，参考相关文档。-->
+    <!--android:description-->
+    <!--android:packageNames-->
+    <!--android:accessibilityEventTypes-->
+    <!--android:accessibilityFlags-->
+    <!--android:accessibilityFeedbackType-->
+    <!--android:notificationTimeout-->
+    <!--android:canRetrieveWindowContent-->
+    <!--android:settingsActivity-->

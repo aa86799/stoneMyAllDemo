@@ -1,1 +1,1 @@
-include ':volley', ':eventbuslib', ':imageloader', ':lib'
+include ':volley', ':eventbuslib', ':imageloader'

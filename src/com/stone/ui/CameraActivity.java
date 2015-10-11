@@ -66,8 +66,8 @@ public class CameraActivity extends Activity {
         FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
         preview.addView(mPreview);
 
-        Button captureButton = (Button) findViewById(R.id.button_capture);
-        captureButton.setOnClickListener(
+        Button capturePhoto = (Button) findViewById(R.id.btn_capturePhoto);
+        capturePhoto.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -98,6 +98,13 @@ public class CameraActivity extends Activity {
                     }
                 }
         );
+
+        Button captureVideo = (Button) findViewById(R.id.btn_captureVideo);
+        captureVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
     }
 
     /**

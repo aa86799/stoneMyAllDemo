@@ -112,7 +112,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 "PathShapeActivity",
                 "MatrixActivity",
                 "ShadowActivity",
-                "ListViewActivity"
+                "ListViewActivity",
+                "RecordActivity",
+                "RecyclerViewActivity"
 
         };
     }
@@ -263,7 +265,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 startActi(CameraActivity.class);
                 break;
             case 46: //
-                startActi(SystemCameraActivity.class);
+                startActi(CameraSystemActivity.class);
                 break;
             case 47: //占位view: ViewStub
                 startActi(ViewStubActivity.class);
@@ -300,6 +302,11 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 break;
             case 58: //测试优化后的ViewHolder 和 Adapter
                 startActi(ListViewActivity.class);
+            case 59: //camera record
+                startActi(RecordActivity.class);
+                break;
+            case 60: //RecyclerView
+                startActi(RecyclerViewActivity.class);
                 break;
             default:
                 break;
