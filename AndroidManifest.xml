@@ -6,7 +6,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="9"
         android:targetSdkVersion="19" />
 
     <supports-screens
@@ -244,6 +244,10 @@
             android:configChanges="orientation|keyboard"/>
         <activity
             android:name=".ui.RecyclerViewActivity"
+            android:label="RecyclerViewActivity"/>
+        <activity
+            android:theme="@android:style/Theme.Black"
+            android:name=".ui.TvRecyclerViewActivity"
             android:label="RecyclerViewActivity"/>
 
         <receiver android:name=".ui.TestMode1$MyReceiver" >

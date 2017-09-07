@@ -71,7 +71,7 @@ public class WidgetSetService extends RemoteViewsService {
 		@Override
 		public RemoteViews getViewAt(int position) {
 			RemoteViews views = new RemoteViews(mContext.getPackageName(), android.R.layout.simple_list_item_1);
-			views.setTextViewText(android.R.id.text1, "item:" + position);
+			views.setTextViewText(android.R.id.text1, mWidgetItems.get(position));
 			System.out.println("RemoteViewsService----getViewAt" + position);
 			
 			

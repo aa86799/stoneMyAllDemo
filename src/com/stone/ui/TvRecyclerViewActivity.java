@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableString;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -17,7 +19,7 @@ import com.stone.R;
  * email  : aa86799@163.com
  * time   : 15/10/11 12 41
  */
-public class RecyclerViewActivity extends Activity {
+public class TvRecyclerViewActivity extends Activity {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -45,6 +47,7 @@ public class RecyclerViewActivity extends Activity {
         }
         mAdapter = new MyAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
+
     }
 
     private class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
@@ -73,11 +76,22 @@ public class RecyclerViewActivity extends Activity {
         public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                        int viewType) {
             // create a new view
-            Button v = new Button(RecyclerViewActivity.this);
-            v.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            Button vv = new Button(TvRecyclerViewActivity.this);
+            vv.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
 
             // set the view's size, margins, paddings and layout parameters
-            ViewHolder vh = new ViewHolder(v);
+            ViewHolder vh = new ViewHolder(vv);
+            vv.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {// 这里会造成下滑时重复显示item
+                    if (hasFocus) {
+                        v.setBackgroundColor(Color.parseColor("#abc777"));
+                    } else {
+                        v.setBackgroundColor(Color.parseColor("#eabc09"));
+                    }
+
+                }
+            });
             return vh;
         }
 

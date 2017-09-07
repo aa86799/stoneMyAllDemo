@@ -114,7 +114,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 "ShadowActivity",
                 "ListViewActivity",
                 "RecordActivity",
-                "RecyclerViewActivity"
+                "RecyclerViewActivity",
+                "TvRecyclerViewActivity"
 
         };
     }
@@ -308,6 +309,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
             case 60: //RecyclerView
                 startActi(RecyclerViewActivity.class);
                 break;
+            case 61:
+                startActi(TvRecyclerViewActivity.class);
             default:
                 break;
         }
